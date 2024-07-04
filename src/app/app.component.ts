@@ -11,5 +11,5 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Angular-Concepts';
+  title = 'Walk-In';
 }
