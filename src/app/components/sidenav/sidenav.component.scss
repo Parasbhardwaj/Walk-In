@@ -1,0 +1,54 @@
+.example-container {
+  height: 92%;
+}
+.example-sidenav-content {
+  // display: flex;
+  height: 100%;
+  // background-color: white;
+  // align-items: center;
+  // justify-content: center;
+}
+.example-sidenav {
+   user-select: none;
+   width: auto;
+   border-right: 5px solid black;
+   background-color: #bde0fe;
+}
+.full-width {
+  width: 100%;
+}
+.menu-button {
+  // color: #002a53;
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+.mat-drawer{
+  border-radius: 0%;
+}
+::ng-deep .mdc-list-item__primary-text {
+  color: #002a53 !important;
+}
+.example-toolbar{
+  background-color: darkgray;
+  // color: black;
+}
+mat-icon{
+  color: black;
+}
+// .example-app-name{
+//   font-weight: bold;
+//   font-size: larger;
+// }
+// .submenu {
+//   overflow-y: hidden;
+//   transition: transform 300ms ease;
+//   transform: scaleY(0);
+//   transform-origin: top;
+//   padding-left: 30px;
+// }
+// .submenu.expanded {
+//   transform: scaleY(1);
+// }
