@@ -9,6 +9,10 @@ export class ApiServiceService {
   restUrl: string = environment.baseUrl
   constructor(private http:HttpClient) { }
 
+  login(body){
+    return this.http.post(this.restUrl + body.url, body.params)
+  }
+
   get(url){
     return this.http.get(this.restUrl + url)
   }
