@@ -1,10 +1,11 @@
 export class Drive{
-    companyName:string;
+    driveId: string;
+    // companyName:string;
     contactPerson:string;
     address:string;
-    timing:string;
+    time:string;
     date:Date;
-    jobTitle:string;
+    // jobTitle:string;
     jobDescription:string;
-    salary:string;
+    // salary:string;
 }

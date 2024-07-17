@@ -3,11 +3,29 @@ table {
 }
 .mat-elevation-z8{
   // padding:1%;
-  margin: 1%;
+  // margin: 1%;
+  // margin: 0% 1% 1% 1%;
 }
 .heading{
   padding: 1%;
   // color: black;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 20%;
+  margin: 1% 0% 0% 0%;
+}
+
+.button{
+  background-color: #002a53;
+  border: 2px solid #002a53;
+  color: white;
+  text-align: center;
+  border-radius: 15%;
+  font-size: 16px;
+  // display: inline-block;
+  // margin: 16px 8px;
 }
 // .mat-mdc-table {
 //   border: 3px solid black;
