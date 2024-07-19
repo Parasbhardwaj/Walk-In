@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ApiServiceService } from '../../services/api-service.service';
 import { Router } from '@angular/router';
+import { ApiServiceService } from '../../services/api-service.service';
+import { CookieServiceService } from '../../services/cookie-service.service';
 
 @Component({
   selector: 'app-login-signup',
@@ -12,12 +13,12 @@ import { Router } from '@angular/router';
 })
 export class LoginSignupComponent {
 
-  emailInput:string = ""
-  passwordInput:string = ""
+  emailInput: string = ""
+  passwordInput: string = ""
 
-  constructor(private rest: ApiServiceService, private router:Router){}
+  constructor(private rest: ApiServiceService, private router: Router, private cookie:CookieServiceService) { }
 
-  login(){
+  login() {
     let reqBody = {
       url: '/auth/login',
       params: {
@@ -25,14 +26,12 @@ export class LoginSignupComponent {
         password: this.passwordInput
       }
     }
-    this.rest.login(reqBody).subscribe((res)=>{
-      console.log(res);
-      this.router.navigateByUrl("/dashboard")
-      
-    },(err)=>{
+    this.rest.login(reqBody).subscribe((res: any) => {
+      this.cookie.saveTokens(res);
+      this.router.navigate(['/dashboard']);
+    }, (err) => {
       console.log(err);
-      
     })
-    
+
   }
 }

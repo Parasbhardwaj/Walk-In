@@ -5,8 +5,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
+import { CookieServiceService } from '../../services/cookie-service.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -21,6 +22,7 @@ export class SidenavComponent {
   // showSubmenu: boolean = false;
   isShowing = false;
   // showSubSubMenu: boolean = false;
+  constructor(private router:Router,private cookie:CookieServiceService){}
 
   mouseenter() {
     if (!this.isExpanded) {
@@ -32,5 +34,10 @@ export class SidenavComponent {
     if (!this.isExpanded) {
       this.isShowing = false;
     }
+  }
+
+  logout(){
+    this.cookie.removeTokens()
+    this.router.navigate(['/login'])
   }
 }
