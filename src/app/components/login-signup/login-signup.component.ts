@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiServiceService } from '../../services/api-service.service';
 import { CookieServiceService } from '../../services/cookie-service.service';
+import { BlockCopyPasteDirective } from '../../directives/block-copy-paste.directive';
 
 @Component({
   selector: 'app-login-signup',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,BlockCopyPasteDirective],
   templateUrl: './login-signup.component.html',
   styleUrl: './login-signup.component.scss'
 })
