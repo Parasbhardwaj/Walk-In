@@ -4,12 +4,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginSignupComponent },
     {
-        path: '', component: LayoutComponent, children: [
+        path: '', canActivate: [authGuard], component: LayoutComponent, children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'manage-drives', component: ManageDrivesComponent }
         ]
