@@ -11,8 +11,8 @@ export const routes: Routes = [
     { path: 'login', component: LoginSignupComponent },
     {
         path: '', canActivate: [authGuard], component: LayoutComponent, children: [
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'manage-drives', component: ManageDrivesComponent }
+            { path: 'dashboard', loadComponent: () => import('./components/dashboard/dashboard.component').then(c => c.DashboardComponent) },
+            { path: 'manage-drives', loadComponent: () => import('./components/manage-drives/manage-drives.component').then(c => c.ManageDrivesComponent) }
         ]
     }
 
