@@ -1,48 +1,51 @@
 <div class="heading">
-    <h2>Manage Drives</h2>
+  <h2>Manage Drives</h2>
 </div>
 <mat-divider></mat-divider>
 <div class="container">
+  <div class="search-container">
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search in table" #input />
+    </mat-form-field>
+    <button (click)="createDrive()" class="button" matTooltip="Create Drive">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
 
-  <mat-form-field>
-    <mat-label>Search</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Search in table" #input>
-  </mat-form-field>
-  <button (click)="createDrive()" class="button"><i class="fa-solid fa-plus" matToolTip="Create Drive"></i></button>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-      
       <!-- DriveID Column -->
       <ng-container matColumnDef="driveid">
-        <th mat-header-cell *matHeaderCellDef> DriveId </th>
-        <td mat-cell *matCellDef="let element"> {{element.driveId}} </td>
+        <th mat-header-cell *matHeaderCellDef>DriveId</th>
+        <td mat-cell *matCellDef="let element">
+          <u class="link" (click)="viewDrive()">{{ element.driveId }}</u>
+        </td>
       </ng-container>
-      
+
       <!-- Date Column -->
       <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef> Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
       </ng-container>
-      
+
       <!-- Time Column -->
       <ng-container matColumnDef="time">
-        <th mat-header-cell *matHeaderCellDef> Time </th>
-        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+        <th mat-header-cell *matHeaderCellDef>Time</th>
+        <td mat-cell *matCellDef="let element">{{ element.time }}</td>
       </ng-container>
-  
+
       <!-- Address Column -->
       <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef> Address </th>
-        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.address }}</td>
       </ng-container>
-      
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    
-    <mat-paginator [pageSizeOptions]="[2,5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of drives">
-  </mat-paginator>
-</div>  
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 20]" showFirstLastButtons aria-label="Select page of drives">
+    </mat-paginator>
+  </div>
 </div>

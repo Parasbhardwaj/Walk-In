@@ -9,6 +9,7 @@ import { Drive } from '../../models/drive';
 import { DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-drives',
@@ -23,7 +24,7 @@ export class ManageDrivesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private rest: ApiServiceService) { }
+  constructor(private rest: ApiServiceService, private router:Router) { }
 
   ngOnInit(): void {
     const getAllDrivesUrl = "/drive/getall"
@@ -48,6 +49,12 @@ export class ManageDrivesComponent implements OnInit {
 
   createDrive(){
     console.log("drive create start");
+    this.router.navigate(['/create-drive'])
+    // this.router.navigate(['/dashboard']);
+  }
+
+  viewDrive(){
+    console.log("drive id clicked");
     
   }
 }

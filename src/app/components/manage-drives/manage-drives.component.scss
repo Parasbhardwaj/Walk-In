@@ -23,9 +23,23 @@ table {
   color: white;
   text-align: center;
   border-radius: 15%;
-  font-size: 16px;
-  // display: inline-block;
-  // margin: 16px 8px;
+  font-size: 22px;
+  margin: 1%;
+  width: 4%;
+}
+
+.button:hover {
+  filter: brightness(200%);
+}
+
+.link{
+  color: blue;
+}
+
+.search-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 // .mat-mdc-table {
 //   border: 3px solid black;
