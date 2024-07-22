@@ -94,8 +94,9 @@
       <!-- <mat-form-field>
         <mat-label>Address</mat-label> -->
         <div class="editor-container">
-          <quill-editor [(ngModel)]="content" [modules]="modules"></quill-editor>
+          <quill-editor #editor [(ngModel)]="content" [modules]="modules"></quill-editor>
         </div>
+
         <!-- <input matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY" required /> -->
       <!-- </mat-form-field> -->
       <div>

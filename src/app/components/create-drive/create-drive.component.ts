@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation, MatStepperModule } from '@angular/material/stepper';
@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
-import { QuillModule } from 'ngx-quill';
+import { QuillEditorComponent, QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-create-drive',
@@ -19,6 +19,8 @@ import { QuillModule } from 'ngx-quill';
 })
 export class CreateDriveComponent {
   content: string = ""
+  @ViewChild('editor') editor!: QuillEditorComponent;
+
   modules = {
     toolbar: [
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -60,5 +62,35 @@ export class CreateDriveComponent {
 
   submit() {
     console.log(this.content)
+    // console.log(this.getPlainText());
   }
+
+  // getPlainText() {
+  //   const quillEditor = this.editor.quillEditor;
+  //   const plainText = quillEditor.getText().trim();
+  //   return plainText;
+  // }
+
+  // getFormattedText() {
+  //   const quillEditor = this.editor.quillEditor;
+  //   const delta = quillEditor.getContents();
+  //   const formattedText = delta.ops.map((op: any) => {
+  //     if (op.insert) {
+  //       return op.insert;
+  //     } else if (op.attributes) {
+  //       if (op.attributes.bold) {
+  //         return `**${op.insert}**`;
+  //       }
+  //       if (op.attributes.italic) {
+  //         return `*${op.insert}*`;
+  //       }
+  //       if (op.attributes.underline) {
+  //         return `_${op.insert}_`;
+  //       }
+  //     }
+  //     return op.insert;
+  //   }).join('');
+  //   console.log(formattedText);
+  //   return formattedText;
+  // }
 }
