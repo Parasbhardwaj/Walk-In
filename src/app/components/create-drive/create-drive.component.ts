@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BreakpointObserver} from '@angular/cdk/layout';
-import {StepperOrientation, MatStepperModule} from '@angular/material/stepper';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {AsyncPipe} from '@angular/common';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperOrientation, MatStepperModule } from '@angular/material/stepper';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AsyncPipe } from '@angular/common';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-create-drive',
   standalone: true,
-  imports: [MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
+  imports: [QuillModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
   templateUrl: './create-drive.component.html',
   styleUrl: './create-drive.component.scss'
 })
 export class CreateDriveComponent {
+  content: string = ""
+  modules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      ['bold', 'italic', 'underline'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      ['link', 'image']
+    ]
+  };
+
   detailsForm = this._formBuilder.group({
     driveId: ['', Validators.required],
     driveDate: ['', Validators.required],
@@ -32,21 +43,22 @@ export class CreateDriveComponent {
     lowestSalary: ['', Validators.required],
     highestSalary: ['', Validators.required]
   });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
+  // descriptionForm = this._formBuilder.group({
+  //   description: ['', Validators.required],
+  // });
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required],
   });
 
   stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver,
-  ) {
+  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({ matches }) => (matches ? 'horizontal' : 'vertical')));
+  }
+
+  submit() {
+    console.log(this.content)
   }
 }
