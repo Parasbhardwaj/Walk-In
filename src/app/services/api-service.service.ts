@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { CookieServiceService } from './cookie-service.service';
@@ -10,7 +10,7 @@ export class ApiServiceService {
   restUrl: string = environment.baseUrl
   // accessToken = getTokens('accessToken');
 
-  constructor(private http: HttpClient,private cookie:CookieServiceService) { }
+  constructor(private http: HttpClient, private cookie: CookieServiceService) { }
 
   login(body) {
     return this.http.post(this.restUrl + body.url, body.params)
@@ -22,13 +22,13 @@ export class ApiServiceService {
     const accessToken = this.cookie.getToken("accessToken");
     console.log(accessToken);
     console.log(typeof accessToken);
-    
-    
+
+
     const headers = new HttpHeaders({
       Authorization: `Bearer ${accessToken}`
     })
     console.log(headers);
-    
+
     return this.http.get(this.restUrl + url, { headers })
   }
 
@@ -39,6 +39,19 @@ export class ApiServiceService {
 
   post(body) {
     return this.http.post(this.restUrl + body.url, body.params)
+  }
+
+  uploadFile(body) {
+    const req = new HttpRequest('POST', this.restUrl + body.url, body.params, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req)
+  }
+
+  getFiles() {
+    return this.http.get(`${this.restUrl}/files`);
   }
 
 }

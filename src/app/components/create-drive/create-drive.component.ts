@@ -9,11 +9,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
 import { QuillEditorComponent, QuillModule } from 'ngx-quill';
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @Component({
   selector: 'app-create-drive',
   standalone: true,
-  imports: [QuillModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
+  imports: [FileUploadComponent,QuillModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
   templateUrl: './create-drive.component.html',
   styleUrl: './create-drive.component.scss'
 })
