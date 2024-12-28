@@ -1,88 +1,31 @@
-<mat-stepper
-  class="example-stepper"
-  [orientation]="(stepperOrientation | async)!"
->
+<div class="heading">
+  <h2>Create Drive</h2>
+</div>
+<mat-divider></mat-divider>
+<mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
   <mat-step [stepControl]="detailsForm" label="Drive Details">
     <form [formGroup]="detailsForm">
       <div class="row">
         <mat-form-field class="col-md-3">
           <mat-label>Drive Id</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveId"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="driveId" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
           <mat-label>Drive Date</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveDate"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="driveDate" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
           <mat-label>Drive Time</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveTime"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="driveTime" required />
         </mat-form-field>
       </div>
       <h5>Address:</h5>
       <div class="row">
         <mat-form-field class="col-md-3">
           <mat-label>Address Line 1</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveAddressLine1"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="driveAddressLine1" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
-          <mat-label>Address Line 2</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveAddressLine2"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field class="col-md-3">
-          <mat-label>State</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveAddressState"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field class="col-md-3">
-          <mat-label>City</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveAddressCity"
-            required
-          />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field class="col-md-3">
-          <mat-label>Pin Code</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="driveAddressPincode"
-            required
-          />
-        </mat-form-field>
-        <!-- <mat-form-field class="col-md-3">
           <mat-label>Address Line 2</mat-label>
           <input matInput placeholder="Last name, First name" formControlName="driveAddressLine2" required />
         </mat-form-field>
@@ -93,95 +36,59 @@
         <mat-form-field class="col-md-3">
           <mat-label>City</mat-label>
           <input matInput placeholder="Last name, First name" formControlName="driveAddressCity" required />
-        </mat-form-field> -->
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-3">
+          <mat-label>Pin Code</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="driveAddressPincode" required />
+        </mat-form-field>
       </div>
       <h5>Company Details:</h5>
       <div class="row">
         <mat-form-field class="col-md-3">
           <mat-label>Company Name</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="companyName"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="companyName" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
           <mat-label>Contact Person Name</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="companyContactPersonName"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="companyContactPersonName" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
           <mat-label>Contact Person Mobile Number</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="companyContactPersonMobile"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="companyContactPersonMobile" required />
         </mat-form-field>
-        <!-- <mat-form-field class="col-md-3">
-          <mat-label>City</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="driveAddressCity" required />
-        </mat-form-field> -->
       </div>
       <h5>Salary Details:</h5>
       <div class="row">
         <mat-form-field class="col-md-3">
           <mat-label>Lowest Salary(lpa)</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="lowestSalary"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="lowestSalary" required />
         </mat-form-field>
         <mat-form-field class="col-md-3">
           <mat-label>Highest Salary(lpa)</mat-label>
-          <input
-            matInput
-            placeholder="Last name, First name"
-            formControlName="highestSalary"
-            required
-          />
+          <input matInput placeholder="Last name, First name" formControlName="highestSalary" required />
         </mat-form-field>
       </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+      <div class="center-buttons">
+        <button mat-button matStepperNext disabled="!detailsForm.valid">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step label="Job Description">
-    <!-- <mat-step [stepControl]="descriptionForm" label="Job Description"> -->
-    <!-- <form [formGroup]="descriptionForm"> -->
-
-    <!-- <mat-form-field>
-        <mat-label>Address</mat-label> -->
     <div class="editor-container">
-      <quill-editor
-        #editor
-        [(ngModel)]="content"
-        [modules]="modules"
-      ></quill-editor>
+      <quill-editor #editor [(ngModel)]="jdContent" [modules]="modules"></quill-editor>
     </div>
-
-    <!-- <input matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY" required /> -->
-    <!-- </mat-form-field> -->
-    <div>
+    <div class="center-buttons">
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
     </div>
-    <!-- </form> -->
   </mat-step>
   <mat-step label="Attach Documents">
     <div class="file-upload">
       <app-file-upload></app-file-upload>
     </div>
-    <div>
+    <div class="center-buttons">
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button matStepperNext>Next</button>
     </div>
@@ -189,9 +96,9 @@
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
-    <div>
+    <div class="center-buttons">
       <button mat-button matStepperPrevious>Back</button>
-      <button (click)="submit()">Submit</button>
+      <button mat-button (click)="submit()">Submit</button>
     </div>
   </mat-step>
 </mat-stepper>

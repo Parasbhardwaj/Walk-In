@@ -10,16 +10,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
 import { QuillEditorComponent, QuillModule } from 'ngx-quill';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-create-drive',
   standalone: true,
-  imports: [FileUploadComponent,QuillModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
+  imports: [FileUploadComponent,QuillModule,MatDividerModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, AsyncPipe],
   templateUrl: './create-drive.component.html',
   styleUrl: './create-drive.component.scss'
 })
 export class CreateDriveComponent {
-  content: string = ""
+  jdContent: string = ""
   @ViewChild('editor') editor!: QuillEditorComponent;
 
   modules = {
@@ -46,12 +47,6 @@ export class CreateDriveComponent {
     lowestSalary: ['', Validators.required],
     highestSalary: ['', Validators.required]
   });
-  // descriptionForm = this._formBuilder.group({
-  //   description: ['', Validators.required],
-  // });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
-  });
 
   stepperOrientation: Observable<StepperOrientation>;
 
@@ -62,7 +57,7 @@ export class CreateDriveComponent {
   }
 
   submit() {
-    console.log(this.content)
+    console.log(this.jdContent)
     // console.log(this.getPlainText());
   }
 

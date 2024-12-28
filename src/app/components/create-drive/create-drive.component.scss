@@ -1,3 +1,7 @@
+.heading{
+  padding: 1%;
+}
+
 .example-stepper {
   margin-top: 8px;
 }
@@ -8,12 +12,14 @@
 
 quill-editor{
   width: 80%;
+  height: 90%;
 }
 
 /* rich-text-editor.component.css */
 .editor-container {
   // height: 400px;
   text-align: center;
+  height: 50vh
 }
 
 // ::ng-deep .ql-container {
@@ -24,3 +30,35 @@ quill-editor{
 .file-upload{
 margin: 1%;
 }
+
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+button {
+  background-color: #002a53;
+  border: 1px solid #ccc;
+  color: #fff !important;
+  padding: 1% 1.5%;
+  margin: 1%;
+  text-transform: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+  color: #002a53 !important;
+}
+
+button:disabled {
+  background-color: #e0e0e0;
+  border-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
